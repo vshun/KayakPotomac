@@ -1,10 +1,10 @@
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
-            android:orientation="vertical" android:id="@+id/playspotsTab"
-             android:layout_height="fill_parent" android:layout_width="fill_parent">      
-        <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/headerTable">
-        <TableRow android:layout_width="match_parent" android:id="@+id/headerRow"
-			tools:ignore="UselessParent">
+            android:orientation="vertical"
+            android:layout_height="fill_parent" android:layout_width="fill_parent">
+        <TableLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TableRow android:layout_width="match_parent"
+            tools:ignore="UselessParent">
         	<TextView android:text="Name" style="@style/WeightedTableHeaderField"
                 tools:ignore="HardcodedText" />
 	     	<TextView android:text="From" style="@style/TableHeaderFieldPadding"

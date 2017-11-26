@@ -28,8 +28,8 @@ class DownloadWeatherData extends AsyncTask<String, Void, WeatherInfo> {
 	
 	private final WeakReference<CurrentConditionsFragment> fragmentWeakRef;
 	
-	public DownloadWeatherData (CurrentConditionsFragment fragment)  {
-		this.fragmentWeakRef = new WeakReference<CurrentConditionsFragment>(fragment);
+	DownloadWeatherData (CurrentConditionsFragment fragment)  {
+		this.fragmentWeakRef = new WeakReference<>(fragment);
 	}
 	
 	@Override

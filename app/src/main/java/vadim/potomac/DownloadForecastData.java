@@ -35,7 +35,7 @@ class DownloadForecastData extends AsyncTask<String, Void, NoaaData> {
 
 	// Container Activity must implement this interface
     DownloadForecastData(ForecastConditionsFragment fragment)  {
-		this.fragmentWeakRef = new WeakReference<ForecastConditionsFragment>(fragment);
+		this.fragmentWeakRef = new WeakReference<>(fragment);
 	}
 	
 	@Override

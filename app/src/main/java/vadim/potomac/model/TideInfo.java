@@ -1,45 +1,24 @@
 package vadim.potomac.model;
 
-// the info is populated in tab delimited file from noaa tidesandcurrents web site published yearly
+import java.util.LinkedList;
+import java.util.List;
+
+// class contains times for lows and highs for tides on today date for DC Potomac
 public class TideInfo {
-	private String dayOfWeek;
-	private String amTideTimeLow;
-	private String amTideTimeHigh;
-	private String pmTideTimeLow;
-	private String pmTideTimeHigh;
+	private List<String> lowTideReadings = new LinkedList<>();
+	private List<String> highTideReadings = new LinkedList<>();
 
-	public TideInfo() {
-		dayOfWeek = amTideTimeLow = amTideTimeHigh = pmTideTimeLow = pmTideTimeHigh = "NA";
-	}
-	
-	public void setDayOfWeek (String dayOfWeek) {
-		this.dayOfWeek = dayOfWeek;
-	}
-	public void setAmTideTimeLow(String amTideTimeLow) {
-		this.amTideTimeLow = amTideTimeLow;
-	}
-	public String getAmTideTimeLow() {
-		return amTideTimeLow;
+	public void addReading (String time, String type) {
+		if (type.equals("L"))
+			lowTideReadings.add(time);
+		else // must be high tides
+			highTideReadings.add(time);
 	}
 
-	public void setAmTideTimeHigh(String amTideTimeHigh) {
-		this.amTideTimeHigh = amTideTimeHigh;
+	public List<String> getLows () {
+		return lowTideReadings;
 	}
-	public String getAmTideTimeHigh() {
-		return amTideTimeHigh;
-	}
-
-	public void setPmTideTimeLow(String pmTideTimeLow) {
-		this.pmTideTimeLow = pmTideTimeLow;
-	}
-	public String getPmTideTimeLow() {
-		return pmTideTimeLow;
-	}
-
-	public void setPmTideTimeHigh(String pmTideTimeHigh) {
-		this.pmTideTimeHigh = pmTideTimeHigh;
-	}
-	public String getPmTideTimeHigh() {
-		return pmTideTimeHigh;
+	public List<String> getHighs () {
+		return highTideReadings;
 	}
 }

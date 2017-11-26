@@ -13,7 +13,7 @@ import vadim.potomac.model.PlayspotType;
 
 @SuppressWarnings("ConstantConditions")
 class Playspots {
-	private final ArrayList<Playspot> m_playspots = new ArrayList<Playspot>();
+	private final ArrayList<Playspot> m_playspots = new ArrayList<>();
 	
 	Playspots(XmlPullParser xpp) 	throws XmlPullParserException, IOException {
 
@@ -41,19 +41,26 @@ class Playspots {
 	        	  			elName = null;              
 	        } else if(eventType == XmlPullParser.TEXT && (elName != null)) {
 	        	 String elText = xpp.getText().trim();
-	        	 if (elName.equals("name"))
-	        		 playspotName = xpp.getText(); 
-	        	 else if (elName.equals("min"))
-	        		 min = Float.valueOf(elText);
-			   	 else if (elName.equals("max"))
-					 max = Float.valueOf(elText);
-			   	 else if (elName.equals("best"))
-					 best = Float.valueOf(elText);
-			   	 else if (elName.equals("class"))
-					 classification = Integer.valueOf(elText);
-			   	 else if (elName.equals("boat")) {
-			   		playspotType = xpp.getText();
-			   	 }
+				   switch (elName) {
+					   case "name":
+						   playspotName = xpp.getText();
+						   break;
+					   case "min":
+						   min = Float.valueOf(elText);
+						   break;
+					   case "max":
+						   max = Float.valueOf(elText);
+						   break;
+					   case "best":
+						   best = Float.valueOf(elText);
+						   break;
+					   case "class":
+						   classification = Integer.valueOf(elText);
+						   break;
+					   case "boat":
+						   playspotType = xpp.getText();
+						   break;
+				   }
 	         }
 	         eventType = xpp.next();
 	        }

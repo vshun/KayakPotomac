@@ -281,7 +281,7 @@ public class KayakPotomacActivity extends FragmentActivity implements
     }
 	
 	private class SectionsPagerAdapter extends FragmentPagerAdapter {
-		final SparseArray<Fragment> registeredFragments = new SparseArray<Fragment>();
+		final SparseArray<Fragment> registeredFragments = new SparseArray<>();
 		private final Context context;
 		
 		SectionsPagerAdapter(Context context, FragmentManager fm) {

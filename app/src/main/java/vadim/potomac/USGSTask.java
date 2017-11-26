@@ -33,7 +33,7 @@ class USGSTask extends AsyncTask<String, Void, RiverData> {
 	
 	USGSTask(CurrentConditionsFragment fragment,
 			 Playspots playspots) {
-		this.fragmentWeakRef = new WeakReference<CurrentConditionsFragment>(fragment);
+		this.fragmentWeakRef = new WeakReference<>(fragment);
 		m_playspots = playspots;
 	}	
 

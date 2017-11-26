@@ -29,6 +29,7 @@
     <string name="menupreferences">Configure</string>
     <string name="menurefresh">Refresh</string>
     <string name="set_configuration">Configuration</string>
+    <string name="tideForecastUrl">https://tidesandcurrents.noaa.gov/api/datagetter?product=predictions&amp;application=NOS.COOPS.TAC.WL&amp;datum=MLLW&amp;station=8594900&amp;time_zone=lst_ldt&amp;units=english&amp;interval=hilo&amp;format=xml</string>
     <string name="title_section1">Now</string>
     <string name="title_section2">Forecast</string>
     <string name="title_section3">Graph</string>

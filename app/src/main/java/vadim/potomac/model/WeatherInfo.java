@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class WeatherInfo {
 	private CurrentWeather currentWeather;
-	private final ArrayList<ForecastWeather> forecastData = new ArrayList<ForecastWeather> ();
+	private final ArrayList<ForecastWeather> forecastData = new ArrayList<>();
 	
 	public void setCurrentWeather (CurrentWeather currentWeather) {
 		this.currentWeather = currentWeather;

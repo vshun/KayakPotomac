@@ -31,7 +31,7 @@ public class ForecastConditionsFragment extends Fragment {
 	
     private void startNewForecastAsyncTask() {
     	DownloadForecastData asyncTask = new DownloadForecastData(this);	    			
-        this.forecastTaskWeakReference = new WeakReference<DownloadForecastData>(asyncTask );
+        this.forecastTaskWeakReference = new WeakReference<>(asyncTask);
         asyncTask.execute(getString (R.string.levelForecastUrl));
     }
     

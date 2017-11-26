@@ -11,7 +11,7 @@ public enum PlayspotType implements Serializable {
 	     public static final String PREFS = "playspotsPref";
 
 	     private static final Map<String,PlayspotType> lookup 
-	          = new HashMap<String,PlayspotType>();
+	          = new HashMap<>();
 
 	     static {
 	          for(PlayspotType s : EnumSet.allOf(PlayspotType.class))

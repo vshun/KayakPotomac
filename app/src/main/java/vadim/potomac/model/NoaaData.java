@@ -24,7 +24,7 @@ public class NoaaData {
 	private final String mTimeRequested;
 	
 	public NoaaData  (String timeRequested) {
-		noaaForecast =  new ArrayList<RiverForecast>();
+		noaaForecast = new ArrayList<>();
 		df.setTimeZone(TimeZone.getTimeZone("UTC"));
 		mTimeRequested = timeRequested;
 	}
@@ -57,7 +57,7 @@ public class NoaaData {
 	
 	public void deflate () {
     	
-	    	ArrayList<RiverForecast> collapsedForecast = new ArrayList<RiverForecast>();
+	    	ArrayList<RiverForecast> collapsedForecast = new ArrayList<>();
 
 	    	// NOAA raw forecast can start with a) old dates prior to today, or b) today or c) tomorrow 
 	    	// first set to ignore old forecasts

@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
-
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
         applicationId "vadim.potomac"
@@ -17,8 +16,11 @@ android {
         }
     }
 }
-
 dependencies {
     compile 'com.android.support:support-v4:25.3.1'
-    compile 'org.achartengine:achartengine:1.1.0'
+    implementation files('extlib/achartengine-1.2.0.jar')
+}
+
+repositories {
+    maven { url './extlib' }
 }

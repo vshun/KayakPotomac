@@ -14,8 +14,6 @@ import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 import org.achartengine.ChartFactory;
 import org.achartengine.GraphicalView;
-import org.achartengine.renderer.SimpleSeriesRenderer;
-
 
 import vadim.potomac.model.NoaaData;
 import vadim.potomac.model.RiverForecast;
@@ -113,12 +111,13 @@ public class PlotFragment extends Fragment {
         				maxX+hoursPad, minY-0.1, maxY+0.1, Color.GRAY, Color.LTGRAY, Color.MAGENTA);
         renderer.setXLabels(5);
         renderer.setYLabels(10);
-
+/*  disabled under V2.2
         int length = renderer.getSeriesRendererCount();
         for (int i = 0; i < length; i++) {
           SimpleSeriesRenderer seriesRenderer = renderer.getSeriesRendererAt(i);
           seriesRenderer.setDisplayChartValues(true);
         }
+*/
         GraphicalView chart= ChartFactory.getTimeChartView(getActivity(), dataset, renderer, "EEE");
         LinearLayout chart_container=(LinearLayout)rootView.findViewById(R.id.plotImage);
         chart_container.addView(chart);
