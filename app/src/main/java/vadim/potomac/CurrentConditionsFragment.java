@@ -1,7 +1,12 @@
 package vadim.potomac;
 
 import java.lang.ref.WeakReference;
-import vadim.potomac.model.WeatherInfo;
+import java.util.List;
+import java.util.Objects;
+
+import vadim.playpotomac.R;
+import vadim.potomac.model.ForecastWeather;
+
 import android.os.AsyncTask;
 import android.os.AsyncTask.Status;
 import android.os.Bundle;
@@ -14,7 +19,7 @@ import android.widget.LinearLayout;
 
 public class CurrentConditionsFragment extends Fragment {
 	private Playspots mPlayspots = null;
-	private WeatherInfo mWeatherInfo = null;
+	private List<ForecastWeather> mWeatherInfo = null;
 	private float mCurrentLevel;
 	private WeakReference<DownloadWeatherData> weatherTaskWeakReference;
 	private WeakReference<USGSTask> usgsTaskWeakReference;
@@ -85,7 +90,7 @@ public class CurrentConditionsFragment extends Fragment {
         if (isWeatherAsyncTaskPendingOrRunning()||
         		isUSGSAsyncTaskPendingOrRunning() ||
 				isTideAsyncTaskPendingOrRunning()) {
-            LinearLayout nowProgress = (LinearLayout) getView().findViewById(R.id.nowProgress);
+            LinearLayout nowProgress = Objects.requireNonNull(getView()).findViewById(R.id.nowProgress);
             if (nowProgress != null)
             	nowProgress.setVisibility(View.VISIBLE);       }	
     }
@@ -106,10 +111,10 @@ public class CurrentConditionsFragment extends Fragment {
 	public void setCurrentLevel(float currentLevel) {
 		this.mCurrentLevel = currentLevel;
 	}
-	public WeatherInfo getWeatherInfo() {
+	public List<ForecastWeather> getWeatherInfo() {
 		return mWeatherInfo;
 	}
-	public void setWeatherInfo(WeatherInfo weatherInfo) {
+	public void setWeatherInfo(List<ForecastWeather> weatherInfo) {
 		mWeatherInfo = weatherInfo;
 	}
 }

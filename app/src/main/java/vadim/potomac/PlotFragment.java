@@ -15,6 +15,7 @@ import org.achartengine.renderer.XYSeriesRenderer;
 import org.achartengine.ChartFactory;
 import org.achartengine.GraphicalView;
 
+import vadim.playpotomac.R;
 import vadim.potomac.model.NoaaData;
 import vadim.potomac.model.RiverForecast;
 
@@ -39,7 +40,7 @@ public class PlotFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
- 
+
         View rootView = inflater.inflate(R.layout.plot, container, false);
         Activity parent = getActivity();
         NoaaData noaaData = ((FragmentActivityCommunicator)parent).getNoaaData();
@@ -57,7 +58,7 @@ public class PlotFragment extends Fragment {
       	
     	View rootView = getView();
     	if (rootView == null) return; // not inflated yet
-    	LinearLayout chart_container=(LinearLayout)rootView.findViewById(R.id.plotImage);
+    	LinearLayout chart_container=rootView.findViewById(R.id.plotImage);
     	chart_container.removeAllViews();
         graphDisplayed = false;
     }
@@ -119,7 +120,7 @@ public class PlotFragment extends Fragment {
         }
 */
         GraphicalView chart= ChartFactory.getTimeChartView(getActivity(), dataset, renderer, "EEE");
-        LinearLayout chart_container=(LinearLayout)rootView.findViewById(R.id.plotImage);
+        LinearLayout chart_container = rootView.findViewById(R.id.plotImage);
         chart_container.addView(chart);
         
         graphDisplayed = true;

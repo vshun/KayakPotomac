@@ -1,5 +1,6 @@
 package vadim.potomac;
 
+import vadim.playpotomac.R;
 import vadim.potomac.model.TideInfo;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -18,7 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Date;
 
-public class TideTask extends AsyncTask<String, Void, TideInfo> {
+class TideTask extends AsyncTask<String, Void, TideInfo> {
     private static final String TAG = "PlayPotomac.Tide";
 
     private final WeakReference<CurrentConditionsFragment> fragmentWeakRef;

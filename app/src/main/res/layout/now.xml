@@ -10,218 +10,211 @@
 					android:textSize="24sp"
 					tools:ignore="HardcodedText" />
     	   	<View style="@style/Divider"/>
-            <TableLayout 
-    			android:layout_width="wrap_content"
-    			android:layout_height="wrap_content"
-    			android:stretchColumns="1">
-		    <TableRow>
 
-				<TextView
-					android:layout_column="1"
-					android:paddingLeft="15dp"
-					android:text="Level:"
-					tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+				<TableLayout
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:stretchColumns="1">
 
-				<TextView
-					android:id="@+id/level"
-					android:gravity="right"
-					android:paddingRight="15dp"
-					tools:ignore="RtlHardcoded,RtlSymmetry" />
-    		</TableRow>
-    	    <TableRow>
+					<TableRow>
 
-				<TextView
-					android:layout_column="1"
-					android:lineSpacingExtra="18sp"
-					android:paddingLeft="15dp"
-					android:text="Playspot:"
-					tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+						<TextView
+							android:layout_column="1"
+							android:paddingLeft="15dp"
+							android:text="Level:"
+							tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
 
-				<TextView
-					android:id="@+id/playspot"
-					android:gravity="right"
-					android:paddingRight="15dp"
-					tools:ignore="RtlHardcoded,RtlSymmetry" />
-		    </TableRow>   
-		    <TableRow>
+						<TextView
+							android:id="@+id/level"
+							android:gravity="right"
+							android:paddingRight="15dp"
+							tools:ignore="RtlHardcoded,RtlSymmetry" />
+					</TableRow>
 
-				<TextView
-					android:layout_column="1"
-					android:paddingLeft="15dp"
-					android:text="Water temperature:"
-					tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+					<TableRow>
 
-				<TextView
-					android:id="@+id/waterTemp"
-					android:gravity="right"
-					android:paddingRight="15dp"
-					tools:ignore="RtlHardcoded,RtlSymmetry" />
-		    </TableRow>
-		    <TableRow>
+						<TextView
+							android:layout_column="1"
+							android:lineSpacingExtra="18sp"
+							android:paddingLeft="15dp"
+							android:text="Playspot:"
+							tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
 
-				<TextView
-					android:layout_column="1"
-					android:paddingLeft="15dp"
-					android:text="Observed at:"
-					tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+						<TextView
+							android:id="@+id/playspot"
+							android:gravity="right"
+							android:paddingRight="15dp"
+							tools:ignore="RtlHardcoded,RtlSymmetry" />
+					</TableRow>
 
-				<TextView
-					android:id="@+id/observedAt"
-					android:gravity="right"
-					android:paddingRight="15dp"
-					tools:ignore="RtlHardcoded,RtlSymmetry" />
-		    </TableRow>		    
-   	   		<View style="@style/Divider"/>
+					<TableRow>
 
-				<TextView
-					style="@style/SectionTitle"
-					android:text="Weather"
-					android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-					android:textSize="24sp"
-					tools:ignore="HardcodedText" />
-    	   	<View style="@style/Divider"/>
-		    <TableRow>
+						<TextView
+							android:layout_column="1"
+							android:paddingLeft="15dp"
+							android:text="Water temperature:"
+							tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
 
-				<TextView
-					android:layout_column="1"
-					android:paddingLeft="15dp"
-					android:text="Air temperature:"
-					tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+						<TextView
+							android:id="@+id/waterTemp"
+							android:gravity="right"
+							android:paddingRight="15dp"
+							tools:ignore="RtlHardcoded,RtlSymmetry" />
+					</TableRow>
 
-				<TextView
-					android:id="@+id/airTemp"
-					android:gravity="right"
-					android:paddingRight="15dp"
-					tools:ignore="RtlHardcoded,RtlSymmetry" />
-		    </TableRow>  
-		    <TableRow>
+					<TableRow>
 
-				<TextView
-					android:layout_column="1"
-					android:paddingLeft="15dp"
-					android:text="Condition:"
-					tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+						<TextView
+							android:layout_column="1"
+							android:paddingLeft="15dp"
+							android:text="Observed at:"
+							tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
 
-				<TextView
-					android:id="@+id/condition"
-					android:gravity="right"
-					android:paddingRight="15dp"
-					tools:ignore="RtlHardcoded,RtlSymmetry" />
-		    </TableRow>  
-		    <TableRow>
+						<TextView
+							android:id="@+id/observedAt"
+							android:gravity="right"
+							android:paddingRight="15dp"
+							tools:ignore="RtlHardcoded,RtlSymmetry" />
+					</TableRow>
 
-				<TextView
-					android:layout_column="1"
-					android:paddingLeft="15dp"
-					android:text="Wind:"
-					tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+					<View style="@style/Divider" />
 
-				<TextView
-					android:id="@+id/wind"
-					android:gravity="right"
-					android:paddingRight="15dp"
-					tools:ignore="RtlHardcoded,RtlSymmetry" />
-		    </TableRow>  
-		    <TableRow>
+					<TextView
+						style="@style/SectionTitle"
+						android:text="Weather"
+						android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+						android:textSize="24sp"
+						tools:ignore="HardcodedText" />
 
-				<TextView
-					android:layout_column="1"
-					android:paddingLeft="15dp"
-					android:text="Windchill:"
-					tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+					<View style="@style/Divider" />
 
-				<TextView
-					android:id="@+id/windchill"
-					android:gravity="right"
-					android:paddingRight="15dp"
-					tools:ignore="RtlHardcoded,RtlSymmetry" />
-		    </TableRow>  
-		    <TableRow>
-				<TextView
-					android:layout_column="1"
-					android:paddingLeft="15dp"
-					android:text="Humidity:"
-					tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+					<TableRow>
 
-				<TextView
-					android:id="@+id/humidity"
-					android:gravity="right"
-					android:paddingRight="15dp"
-					tools:ignore="RtlHardcoded,RtlSymmetry" />
-		    </TableRow>  		  
+						<TextView
+							android:layout_column="1"
+							android:paddingLeft="15dp"
+							android:text="Air temperature:"
+							tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
 
-	   		<View style="@style/Divider"/>
+						<TextView
+							android:id="@+id/airTemp"
+							android:gravity="right"
+							android:paddingRight="15dp"
+							tools:ignore="RtlHardcoded,RtlSymmetry" />
+					</TableRow>
 
-				<TextView
-					style="@style/SectionTitle"
-					android:text="Daylight"
-					android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-					android:textSize="24sp"
-					tools:ignore="HardcodedText" />
-	   	   <View style="@style/Divider"/>  		            			   
-		    <TableRow>
-				<TextView
-					android:layout_column="1"
-					android:paddingLeft="15dp"
-					android:text="Sunrise:"
-					tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
-				<TextView
-					android:id="@+id/sunrise"
-					android:gravity="right"
-					android:paddingRight="15dp"
-					tools:ignore="RtlHardcoded,RtlSymmetry" />
-		    </TableRow>    
-		    <TableRow>
-				<TextView
-					android:layout_column="1"
-					android:paddingLeft="15dp"
-					android:text="Sunset:"
-					tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+					<TableRow>
 
-				<TextView
-					android:id="@+id/sunset"
-					android:gravity="right"
-					android:paddingRight="15dp"
-					tools:ignore="RtlHardcoded,RtlSymmetry" />
-		    </TableRow>     
-		<View style="@style/Divider"/>
+						<TextView
+							android:layout_column="1"
+							android:paddingLeft="15dp"
+							android:text="Wind:"
+							tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
 
-				<TextView
-					style="@style/SectionTitle"
-					android:text="Tide"
-					android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-					android:textSize="24sp"
-					tools:ignore="HardcodedText" />
-	   	  <View style="@style/Divider"/>	            			   
-		    <TableRow>
+						<TextView
+							android:id="@+id/wind"
+							android:gravity="right"
+							android:paddingRight="15dp"
+							tools:ignore="RtlHardcoded,RtlSymmetry" />
+					</TableRow>
 
-				<TextView
-					android:layout_column="1"
-					android:paddingLeft="15dp"
-					android:text="Low:"
-					tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+					<TableRow>
 
-				<TextView
-					android:id="@+id/lowTide"
-					android:gravity="right"
-					android:paddingRight="15dp"
-					tools:ignore="RtlHardcoded,RtlSymmetry" />
-		    </TableRow>    
-		    <TableRow>
+						<TextView
+							android:layout_column="1"
+							android:paddingLeft="15dp"
+							android:text="Condition:"
+							tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
 
-				<TextView
-					android:layout_column="1"
-					android:paddingLeft="15dp"
-					android:text="High:"
-					tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+						<TextView
+							android:id="@+id/condition"
+							android:gravity="right"
+							android:paddingRight="15dp"
+							tools:ignore="RtlHardcoded,RtlSymmetry" />
+					</TableRow>
 
-				<TextView
-					android:id="@+id/highTide"
-					android:gravity="right"
-					android:paddingRight="15dp"
-					tools:ignore="RtlHardcoded,RtlSymmetry" />
-		    </TableRow>              
-			</TableLayout>
+					<View style="@style/Divider" />
+
+					<TextView
+						style="@style/SectionTitle"
+						android:text="Daylight"
+						android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+						android:textSize="24sp"
+						tools:ignore="HardcodedText" />
+
+					<View style="@style/Divider" />
+
+					<TableRow>
+
+						<TextView
+							android:layout_column="1"
+							android:paddingLeft="15dp"
+							android:text="Sunrise:"
+							tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+
+						<TextView
+							android:id="@+id/sunrise"
+							android:gravity="right"
+							android:paddingRight="15dp"
+							tools:ignore="RtlHardcoded,RtlSymmetry" />
+					</TableRow>
+
+					<TableRow>
+
+						<TextView
+							android:layout_column="1"
+							android:paddingLeft="15dp"
+							android:text="Sunset:"
+							tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+
+						<TextView
+							android:id="@+id/sunset"
+							android:gravity="right"
+							android:paddingRight="15dp"
+							tools:ignore="RtlHardcoded,RtlSymmetry" />
+					</TableRow>
+
+					<View style="@style/Divider" />
+
+					<TextView
+						style="@style/SectionTitle"
+						android:text="Tide"
+						android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+						android:textSize="24sp"
+						tools:ignore="HardcodedText" />
+
+					<View style="@style/Divider" />
+
+					<TableRow>
+
+						<TextView
+							android:layout_column="1"
+							android:paddingLeft="15dp"
+							android:text="Low:"
+							tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+
+						<TextView
+							android:id="@+id/lowTide"
+							android:gravity="right"
+							android:paddingRight="15dp"
+							tools:ignore="RtlHardcoded,RtlSymmetry" />
+					</TableRow>
+
+					<TableRow>
+
+						<TextView
+							android:layout_column="1"
+							android:paddingLeft="15dp"
+							android:text="High:"
+							tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+
+						<TextView
+							android:id="@+id/highTide"
+							android:gravity="right"
+							android:paddingRight="15dp"
+							tools:ignore="RtlHardcoded,RtlSymmetry" />
+					</TableRow>
+				</TableLayout>
 			<LinearLayout 
 			    android:id="@+id/nowProgress"
         		android:layout_width="fill_parent"

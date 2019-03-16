@@ -14,7 +14,7 @@
                     tools:ignore="HardcodedText" />
 		        <TextView style="@style/TableHeaderField" android:text="Playspot"
                     tools:ignore="HardcodedText" />
-		        <TextView style="@style/TableHeaderField" android:text="Air (L/H)"
+		        <TextView style="@style/TableHeaderField" android:text="Air (H/L)"
                     tools:ignore="HardcodedText" />
 		    </TableRow>    
 			<View style="@style/Divider"/> 			

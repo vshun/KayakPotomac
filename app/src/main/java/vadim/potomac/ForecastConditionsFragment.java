@@ -2,7 +2,9 @@ package vadim.potomac;
 
 
 import java.lang.ref.WeakReference;
+import java.util.Objects;
 
+import vadim.playpotomac.R;
 import vadim.potomac.model.NoaaData;
 
 import android.os.Bundle;
@@ -45,14 +47,13 @@ public class ForecastConditionsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         return inflater.inflate(R.layout.noaa_data, container, false);
-    }  
-    
+    }
     
     @Override
     public void onResume() {
         super.onResume();
         if (isForecastAsyncTaskPendingOrRunning()	) {
-            LinearLayout noaaProgress = (LinearLayout) getView().findViewById(R.id.noaaProgress);
+            LinearLayout noaaProgress = Objects.requireNonNull(getView()).findViewById(R.id.noaaProgress);
             if (noaaProgress != null)
             	noaaProgress.setVisibility(View.VISIBLE);          	
         }

@@ -1,37 +1,44 @@
 package vadim.potomac.model;
 
 public class ForecastWeather {
-	private String low;	
-	private String high;
-	private String dayOfWeek;
+	private final long id;
+	private final String day;
+	private final boolean isDayTime;
+	private final long temperature;
+	private final String windSpeed;
+	private final String shortForecast;
 
-	String getDayOfWeek() {
-		return dayOfWeek;
+	public ForecastWeather (long id, String day, boolean isDayTime, long temperature,
+							String windSpeed, String shortForecast) {
+		this.id = id;
+		this.day = day;
+		this.isDayTime = isDayTime;
+		this.temperature = temperature;
+		this.windSpeed = windSpeed;
+		this.shortForecast = shortForecast;
 	}
 
-	
-	public void setDayOfWeek (String dayOfWeek) {
-		this.dayOfWeek = dayOfWeek;
+	public long getId() {
+		return id;
 	}
 
-
-	public void setLow(String low) {
-		this.low = low;
+	public String getDay() {
+		return day;
 	}
 
-
-	public String getLow() {
-		return low;
+	public boolean isDayTime() {
+		return isDayTime;
 	}
 
-
-	public void setHigh(String high) {
-		this.high = high;
+	public long getTemperature() {
+		return temperature;
 	}
 
-
-	public String getHigh() {
-		return high;
+	public String getWindSpeed() {
+		return windSpeed;
 	}
 
+	public String getShortForecast() {
+		return shortForecast;
+	}
 }

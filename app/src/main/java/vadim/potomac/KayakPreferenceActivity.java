@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 
+import vadim.playpotomac.R;
+
 public class KayakPreferenceActivity extends PreferenceActivity
 {
     @Override

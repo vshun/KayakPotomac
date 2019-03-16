@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">PlayPotomac</string>
     <string name="title_section1">Now</string>
     <string name="title_section2">Forecast</string>
     <string name="title_section3">Graph</string>
     <string name="title_section4">Playspots</string>
 	<string name="usgsUrl">https://waterdata.usgs.gov/nwis/current?format=rdb&amp;period=7&amp;site_no=01646500</string>
-	<string name="weatherForecastUrl">https://query.yahooapis.com/v1/public/yql?format=xml&amp;q=SELECT%20*%20FROM%20weather.forecast%20WHERE%20woeid%20=%20%272475893%27</string>
-	<string name="levelForecastUrl">http://water.weather.gov/ahps2/hydrograph_to_xml.php?gage=brkm2&amp;output=xml</string>		
+	<string name="weatherForecastUrl">https://api.weather.gov/gridpoints/LWX/89,75/forecast</string>
+	<string name="levelForecastUrl">https://water.weather.gov/ahps2/hydrograph_to_xml.php?gage=brkm2&amp;output=xml</string>
 	<string name="tideForecastUrl">https://tidesandcurrents.noaa.gov/api/datagetter?product=predictions&amp;application=NOS.COOPS.TAC.WL&amp;datum=MLLW&amp;station=8594900&amp;time_zone=lst_ldt&amp;units=english&amp;interval=hilo&amp;format=xml</string>
 	<string name="menurefresh">Refresh</string>
 	<string name="menupreferences">Configure</string>
 	<string name="menuexit">Exit</string>
 	<string name="menuabout">About</string>	
-	<string name="About">Play Potomac is created by Vadim Shun for DC area Potomac paddlers.\nSpecial thanks to NOAA, USGS, Yahoo Weather and PotomacPaddlers for the data.</string>
+	<string name="About">Play Potomac is created by Vadim Shun for DC area Potomac paddlers.\nSpecial thanks to NOAA, USGS, NWS and PotomacPaddlers for the data.</string>
 	<string name="NoConnection">No Internet connection detected. Do you want to retry?</string>
 	<string name="set_configuration">Configuration</string>
 	<string name="default_boat">All</string>

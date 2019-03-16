@@ -1,13 +1,15 @@
 package vadim.potomac;
 
+import java.util.List;
+
+import vadim.potomac.model.ForecastWeather;
 import vadim.potomac.model.NoaaData;
-import vadim.potomac.model.WeatherInfo;
 
 interface FragmentActivityCommunicator {
 	  void onForecastLoaded(NoaaData noaaData);
       void onLevelLoaded();
       Playspots getPlayspots ();
       float getCurrentLevel ();
-      WeatherInfo getWeatherInfo ();
+      List<ForecastWeather> getWeatherInfo ();
       NoaaData getNoaaData();
 }

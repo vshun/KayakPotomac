@@ -1,10 +1,12 @@
 package vadim.potomac;
 
 
+import java.util.List;
 import java.util.Locale;
 
+import vadim.playpotomac.R;
+import vadim.potomac.model.ForecastWeather;
 import vadim.potomac.model.NoaaData;
-import vadim.potomac.model.WeatherInfo;
 import vadim.potomac.util.HttpUtil;
 
 import android.app.AlertDialog;
@@ -78,7 +80,7 @@ public class KayakPotomacActivity extends FragmentActivity implements
 		mSectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
 
 		// Set up the ViewPager with the sections adapter.
-		mViewPager = (ViewPager) findViewById(R.id.pager);
+		mViewPager = findViewById(R.id.pager);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
 		mViewPager.setOffscreenPageLimit(NUM_ITEMS-1);
 		// When swiping between different sections, select the corresponding
@@ -262,8 +264,8 @@ public class KayakPotomacActivity extends FragmentActivity implements
 		return level;
     }
     
-    public WeatherInfo getWeatherInfo () {
-    	WeatherInfo wi = null;
+    public List<ForecastWeather> getWeatherInfo () {
+		List<ForecastWeather>  wi = null;
     	CurrentConditionsFragment f = (CurrentConditionsFragment)
 				mSectionsPagerAdapter.getRegisteredFragment(CURRENT_POSITION);		
 		if (f != null)

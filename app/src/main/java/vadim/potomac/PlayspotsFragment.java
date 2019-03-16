@@ -1,5 +1,6 @@
 package vadim.potomac;
 
+import vadim.playpotomac.R;
 import vadim.potomac.model.Playspot;
 import vadim.potomac.model.PlayspotType;
 
@@ -20,8 +21,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 public class PlayspotsFragment extends Fragment {
-	private static final String TAG = "PlayPotomac.Playspots"; 
-	
+	private static final String TAG = "PlayPotomac.Playspots";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
@@ -39,7 +40,7 @@ public class PlayspotsFragment extends Fragment {
     public void refresh () {
       	View rootView = getView();
     	if (rootView == null) return; // not inflated yet
-       	TableLayout table  = (TableLayout)rootView.findViewById(R.id.playspotsData);  
+       	TableLayout table  = rootView.findViewById(R.id.playspotsData);
     	table.removeAllViews(); // clear table to account that this operation could be triggered by refresh or prefs changed
     }
 
@@ -52,7 +53,7 @@ public class PlayspotsFragment extends Fragment {
     	Playspots playspots = ((FragmentActivityCommunicator)parent).getPlayspots();
     	if (playspots==null) return;
     	float currentLevel = ((FragmentActivityCommunicator)parent).getCurrentLevel();
-    	TableLayout table  = (TableLayout)rootView.findViewById(R.id.playspotsData);  
+    	TableLayout table  = rootView.findViewById(R.id.playspotsData);
     	android.content.SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(parent);
 		PlayspotType boatPreference = PlayspotType.get (
 			prefs.getString(PlayspotType.PREFS, PlayspotType.All.toString()));

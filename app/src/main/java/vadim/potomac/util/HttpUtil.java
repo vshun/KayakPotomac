@@ -20,7 +20,8 @@ public class HttpUtil {
 		public static boolean checkInternetConnection(Context context) {
 			ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 			// test for connection
-			return (cm.getActiveNetworkInfo() != null
+			assert cm != null;
+			return ((cm.getActiveNetworkInfo() != null)
 					&& cm.getActiveNetworkInfo().isAvailable()
 					&& cm.getActiveNetworkInfo().isConnected());
 		}

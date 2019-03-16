@@ -14,6 +14,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
 
+import vadim.playpotomac.R;
 import vadim.potomac.model.PlayspotType;
 import vadim.potomac.model.RiverData;
 import vadim.potomac.util.HttpUtil;
@@ -53,28 +54,28 @@ class USGSTask extends AsyncTask<String, Void, RiverData> {
 		try {
 			super.onPostExecute(usgsResponce);
 			CurrentConditionsFragment fragment = this.fragmentWeakRef.get();
-						
+
 			if (usgsResponce != null && fragment != null) {
 				View topView = fragment.getView();
 				if (topView == null) return; // extra precaution
-				LinearLayout nowProgress = (LinearLayout) topView.findViewById(R.id.nowProgress);
+				LinearLayout nowProgress = topView.findViewById(R.id.nowProgress);
 			    if (nowProgress != null)
 			      	nowProgress.setVisibility(View.GONE);
-			   	TextView lvVw = (TextView)topView.findViewById(R.id.level);
+			   	TextView lvVw = topView.findViewById(R.id.level);
 				float level = Float.valueOf(usgsResponce.getLevel());
 			   	fragment.setCurrentLevel(level);
 				((FragmentActivityCommunicator)fragment.getActivity()).onLevelLoaded ();
 				lvVw.setText (usgsResponce.getLevel()); 		   	
 
-			   	TextView waterTempVw = (TextView)topView.findViewById(R.id.waterTemp);
+			   	TextView waterTempVw = topView.findViewById(R.id.waterTemp);
 				float icTemp = Float.parseFloat (usgsResponce.getWaterTemp().trim());
 				float ifTemp = WeatherUtil.celsiusToFahrenheit(icTemp);
 				waterTempVw.setText(String.valueOf((int)ifTemp)+FARH);
 				
-			    TextView oa = (TextView)topView.findViewById(R.id.observedAt);
+			    TextView oa = topView.findViewById(R.id.observedAt);
 			    oa.setText(usgsResponce.getObservedAt());			
 			
-			   	TextView playspot = (TextView)topView.findViewById(R.id.playspot);
+			   	TextView playspot = topView.findViewById(R.id.playspot);
 				android.content.SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(fragment.getActivity());
 				PlayspotType boatPreference = PlayspotType.get (prefs.getString(PlayspotType.PREFS, PlayspotType.All.toString()));
 				playspot.setText (m_playspots.findBestPlayspot(level, boatPreference));   				
