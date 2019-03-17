@@ -14,6 +14,7 @@ import vadim.playpotomac.R;
 import vadim.potomac.model.ForecastWeather;
 import vadim.potomac.util.HttpUtil;
 import vadim.potomac.util.SunriseSunset;
+import vadim.potomac.util.WeatherUtil;
 
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
@@ -157,7 +158,10 @@ class DownloadWeatherData extends AsyncTask<String, Void, List<ForecastWeather>>
 			   	TextView wind = rootView.findViewById(R.id.wind);
 			   	wind.setText (fw.getWindSpeed());
 
-				Calendar[] sunriseSunset = SunriseSunset.getSunriseSunset(
+				TextView windchill = rootView.findViewById(R.id.windchill);
+				windchill.setText (WeatherUtil.windChill(fw.getTemperature(), fw.getWindSpeed())+FARH);
+
+				Calendar[] sunriseSunset = SunriseSunset.getCivilTwilight (
 							new GregorianCalendar(), 39.0182, -77.2086);
 
 		   		TextView sunrise = rootView.findViewById(R.id.sunrise);

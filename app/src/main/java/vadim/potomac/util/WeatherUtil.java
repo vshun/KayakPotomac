@@ -19,4 +19,20 @@ public 	class WeatherUtil {
     	Date myDate  = f.parse(date);
     	return df.format(myDate);
     }
+
+    public static long windChill (long t, String windSpeed) {
+	    try {
+            double v = deriveWindSpeed(windSpeed);
+            return Math.round (35.74 + 0.6215*t + (0.4275*t - 35.75) * Math.pow(v, 0.16));
+        } catch (RuntimeException e) { // something is off with return string
+	        return t;
+        }
+    }
+
+    // e.g. "5 to 15 mph" or "7 mph". If range returns max
+    private static double deriveWindSpeed (String windSpeed) {
+	    String[] splitWind = windSpeed.split("\\s+");
+	    String strWind = splitWind [splitWind.length-2];
+	    return Double.valueOf(strWind);
+    }
 }
