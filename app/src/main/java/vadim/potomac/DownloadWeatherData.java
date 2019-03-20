@@ -102,7 +102,7 @@ class DownloadWeatherData extends AsyncTask<String, Void, List<ForecastWeather>>
 
 		long id = 0, temperature = 0;
 		boolean isDayTime = false;
-		String windSpeed = null, shortForecast = null, day = null;
+		String windSpeed = null, shortForecast = null, day = null, date = null;
 		reader.beginObject();
 		while (reader.hasNext()) {
 			String name = reader.nextName();
@@ -113,6 +113,9 @@ class DownloadWeatherData extends AsyncTask<String, Void, List<ForecastWeather>>
 					break;
 				case "name":
 					day = reader.nextString();
+					break;
+				case "startTime":
+					date = reader.nextString();
 					break;
 				case "isDaytime":
 					isDayTime = reader.nextBoolean();
@@ -133,7 +136,7 @@ class DownloadWeatherData extends AsyncTask<String, Void, List<ForecastWeather>>
 		}
 		reader.endObject();
 		return id != 0 ?
-				new ForecastWeather (id, day, isDayTime, temperature, windSpeed, shortForecast) : null;
+				new ForecastWeather (id, day, date, isDayTime, temperature, windSpeed, shortForecast) : null;
 	}
 
 

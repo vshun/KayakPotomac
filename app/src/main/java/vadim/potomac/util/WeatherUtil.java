@@ -1,5 +1,7 @@
 package vadim.potomac.util;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
 import java.text.ParseException;
@@ -18,6 +20,12 @@ public 	class WeatherUtil {
 	public static String dayOfTheWeek (String date) throws ParseException {
     	Date myDate  = f.parse(date);
     	return df.format(myDate);
+    }
+
+    public static boolean matchDate (String weatherDate, String noaaDate) throws ParseException {
+        Date wDate = f.parse(weatherDate);
+        Date nDate = f.parse(noaaDate);
+        return wDate.compareTo(nDate) == 0;
     }
 
     public static long windChill (long t, String windSpeed) {

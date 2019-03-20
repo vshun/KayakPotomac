@@ -1,18 +1,15 @@
 package vadim.potomac.model;
 
 public class DailyAir {
-    private String day = "";
+
+    private String date = "";
     private long hi = 0;
     private long low = 0;
-    private String wind = "";
 
-    public String getDay() {
-        return day;
-    }
+    public String getDate () { return date; }
 
-    public void setDay(String day) {
-        this.day = day;
-    }
+    public void setDate(String date)
+        { this.date = date;  }
 
     public long getHi() {
         return hi;
@@ -28,13 +25,5 @@ public class DailyAir {
 
     public void setLow(long low) {
         this.low = low;
-    }
-
-    public String getWind() {
-        return wind;
-    }
-
-    public void setWind(String wind) {
-        this.wind = wind;
     }
 }

@@ -191,7 +191,6 @@ class DownloadForecastData extends AsyncTask<String, Void, NoaaData> {
  		ArrayList<RiverForecast> colRf = noaaData.getForecast();
 	   	if (colRf.size() > row) {
 	   		RiverForecast rf = colRf.get(row);
-	   		DailyAir da = dal.get(row);
 	   		String sLevel = rf.getLevel();
 	   		if (sLevel != null) {
 	   			Activity activity = fragmentWeakRef.get().getActivity();
@@ -199,7 +198,7 @@ class DownloadForecastData extends AsyncTask<String, Void, NoaaData> {
 	   			String dayOfWeek = WeatherUtil.dayOfTheWeek(rf.getDate());
 	   	  		TextView dw0 = parent.findViewById(dayResource);
 			   	dw0.setText (dayOfWeek);   
-			   	
+
 	   			TextView l = parent.findViewById(levelResource);
 	   			l.setText(sLevel);
 	   				 
@@ -216,10 +215,12 @@ class DownloadForecastData extends AsyncTask<String, Void, NoaaData> {
 
 	   			Playspots playspots = ((FragmentActivityCommunicator)activity).getPlayspots();
 	   			p.setText(playspots.findBestPlayspot(level, boatPreference));
-	   		
-	   			TextView temp = parent.findViewById(tempResource);
-	   			if (da != null)
-	   				temp.setText(da.getHi() +"/"+ da.getLow());
+
+				DailyAir da = findMatchingDateDa(dal, rf.getDate());
+				if (da != null) {
+					TextView temp = parent.findViewById(tempResource);
+					temp.setText(da.getHi() + "/" + da.getLow());
+				}
 	   		}
 	   	}  	
  	}
@@ -229,16 +230,25 @@ class DownloadForecastData extends AsyncTask<String, Void, NoaaData> {
 		DailyAir da = new DailyAir();
 		for (ForecastWeather fw : fwl ) {
 			if (fw.isDayTime() ) {
-				da.setDay(fw.getDay());
-				da.setHi(fw.getTemperature());
-				da.setWind(fw.getWindSpeed());
+				da.setHi(fw.getWindchill());
 			} else { // night time - wrap it up and add the element to the array
-				da.setLow(fw.getTemperature());
+				da.setLow(fw.getWindchill());
+				da.setDate(fw.getDate());
 				dal.add(da);
-				da = new DailyAir();
+				da = new DailyAir(); // create new instance for next loop iteration
 			}
-			
 		}
 		return dal;
+	}
+
+	private DailyAir findMatchingDateDa (List<DailyAir> dal, String date) {
+    	try {
+			for (DailyAir da : dal) {
+				if (WeatherUtil.matchDate(da.getDate(), date)) return da;
+			}
+		} catch (Exception e) { // log it and return null, do not display temperature for that forecast
+			Log.e(TAG, e.getMessage());
+		}
+		return null; // not found
 	}
 }
