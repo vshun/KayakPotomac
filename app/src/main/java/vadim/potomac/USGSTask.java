@@ -26,8 +26,11 @@ class USGSTask extends AsyncTask<String, Void, RiverData> {
 	// constants
 	private static final String FARH = "°F";
 	private static final String TAG = "PlayPotomac.USGSTask";
-	private static final int USGS_LEVEL_ID= 69929; // time series ID for gauge level
-	private static final int USGS_TEMP_ID = 69932; // time series ID for temperature
+
+	// table constants
+	private static final int IDENTIFIER_COLUMN = 3;
+	private static final int USGS_LEVEL_ID= 65; // gauge
+	private static final int USGS_TEMP_ID = 10; // temperature
 	
 	private final WeakReference<CurrentConditionsFragment> fragmentWeakRef;
 	private final Playspots m_playspots;
@@ -95,7 +98,7 @@ class USGSTask extends AsyncTask<String, Void, RiverData> {
 	    	if (line.startsWith("USGS")) {
     			String[] all = line.split(" |\t");
 				if (all.length < 7) continue; // avoid malformed string in response, must have at least 7 columns to read
-				int tsID=Integer.parseInt(all[2]); // based on time series to filter and process
+				int tsID=Integer.parseInt(all[IDENTIFIER_COLUMN]); // based on identifier column we need to filter and process
 				if (tsID == USGS_LEVEL_ID) { // level
 	    			String[] time = all[5].split(":"); // process time to get rid of seconds
 	    			observedAt = time[0] + ":" + time[1];
