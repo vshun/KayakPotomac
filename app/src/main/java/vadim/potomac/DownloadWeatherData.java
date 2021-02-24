@@ -3,6 +3,7 @@ package vadim.potomac;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -41,16 +42,17 @@ class DownloadWeatherData extends AsyncTask<String, Void, List<ForecastWeather>>
 					String weatherUrl = params[0];
 		List<ForecastWeather> fwl = null;
 		try {
-			InputStream stream = HttpUtil.readFromURL(weatherUrl);
-			fwl = readJsonStream(stream);
+			String weatherString = HttpUtil.readFromURLNew(weatherUrl);;
+
+			fwl = readJsonStream(weatherString);
 		} catch (IOException e) {
 			Log.e(TAG, e.getMessage());
 		}
 		return fwl;
 	}
 
-	private List<ForecastWeather> readJsonStream(InputStream in) throws IOException {
-		try (JsonReader reader = new JsonReader(new InputStreamReader(in, "UTF-8"))) {
+	private List<ForecastWeather> readJsonStream(String in) throws IOException {
+		try (JsonReader reader = new JsonReader(new StringReader(in))) {
 			try {
 				return readForecastArray(reader);
 			} finally {

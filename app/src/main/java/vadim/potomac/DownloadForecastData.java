@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.lang.ref.WeakReference;
 import java.math.BigDecimal;
 import java.text.ParseException;
@@ -77,10 +78,10 @@ class DownloadForecastData extends AsyncTask<String, Void, NoaaData> {
 		NoaaData noaaData = null;
 		try {
 			// get parser given URL
-			InputStream stream = HttpUtil.readFromURL(params[0]);
+			String resp = HttpUtil.readFromURLNew(params[0]);
 			XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
 	    	XmlPullParser xpp = factory.newPullParser();
-	    	xpp.setInput(stream, null);
+	    	xpp.setInput(new StringReader(resp));
 
 	    	// create noaaData class given time preference
 	    	Activity activity = fragmentWeakRef.get().getActivity();
@@ -126,7 +127,6 @@ class DownloadForecastData extends AsyncTask<String, Void, NoaaData> {
 	           }      
 	        }  
 	        noaaData.deflate ();
-	        stream.close();
 	        ((FragmentActivityCommunicator)activity).onForecastLoaded (noaaData);
 		} catch (Exception e) {
 			Log.e(TAG, e.getMessage());
@@ -139,7 +139,7 @@ class DownloadForecastData extends AsyncTask<String, Void, NoaaData> {
     protected void onPostExecute(NoaaData noaaData) {
     
     	ForecastConditionsFragment fragment = this.fragmentWeakRef.get();
-		if (fragment == null) return; // be cautious if fragment gets disposed by framework
+		if (fragment == null || noaaData == null) return; // be cautious if fragment gets disposed by framework
 		fragment.setNoaaData(noaaData);
 
 		Activity activity = fragmentWeakRef.get().getActivity();
