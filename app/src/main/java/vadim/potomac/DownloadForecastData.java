@@ -225,22 +225,25 @@ class DownloadForecastData extends AsyncTask<String, Void, NoaaData> {
 	   	}  	
  	}
  	
- 	private List<DailyAir> populateDailyAirForecast (List<ForecastWeather> fwl) {
+  	private List<DailyAir> populateDailyAirForecast (List<ForecastWeather> fwl) {
 		List<DailyAir> dal = new ArrayList<>();
-		DailyAir da = new DailyAir();
-		for (ForecastWeather fw : fwl ) {
-			if (fw.isDayTime() ) {
-				da.setHi(fw.getWindchill());
-			} else { // night time - wrap it up and add the element to the array
-				da.setLow(fw.getWindchill());
-				da.setDate(fw.getDate());
-				dal.add(da);
-				da = new DailyAir(); // create new instance for next loop iteration
+		if (fwl != null) {
+			DailyAir da = new DailyAir();
+
+			for (ForecastWeather fw : fwl) {
+				if (fw.isDayTime()) {
+					da.setHi(fw.getWindchill());
+				} else { // night time - wrap it up and add the element to the array
+					da.setLow(fw.getWindchill());
+					da.setDate(fw.getDate());
+					dal.add(da);
+					da = new DailyAir(); // create new instance for next loop iteration
+				}
 			}
 		}
 		return dal;
 	}
-
+	
 	private DailyAir findMatchingDateDa (List<DailyAir> dal, String date) {
     	try {
 			for (DailyAir da : dal) {
